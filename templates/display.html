@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<script type="text/javascript" src="{{url_for('static', filename='js/jquery-1.9.0.js')}}"></script>
+		<script type='text/javascript' src="{{url_for('static', filename='js/script.js')}}"></script>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+		<link rel=stylesheet type=text/css href="{{url_for('static', filename='css/style.css')}}">
+	</head>
+	<body class='display'>
+		<p class='feedno' style="display: none">{{ feedno }}</p>
+		<a href="{{url_for('mainpage')}}" class='btn btn-primary btn-lg active backtomain'>Back to main</a>
+		<div class="container">
+			<div class='feedsdiv'>
+				{% for feed in feedlist %}
+				<div class='row'>
+					<h3 class='text-center'><b>{{ feed.title }}</b></h3>
+						<div class='image'><img src="{{ feed.imageurl }}" alt='No picture available'></div>
+						<div class='description'>{{ feed.description }}...<a href="{{ feed.url }}">See more</a></div>	
+				</div>
+				{% endfor %}
+			</div>
+			<div class="row footer text-center">
+				<button class='prev' style="visibility: hidden">&larr; PREVIOUS</button>
+				<p class='pageno'>Page {{ page_no }}</p>
+				<button class='next'>NEXT &rarr;</button>
+			</div>
+		</div>
+	</body>
+</html>
