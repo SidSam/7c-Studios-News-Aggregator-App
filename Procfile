@@ -1,1 +1,1 @@
-web: gunicorn project:app ${PORT}
+web: gunicorn newsapp:app ${PORT}
