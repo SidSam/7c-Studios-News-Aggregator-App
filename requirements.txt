@@ -2,7 +2,7 @@ Cheetah==2.4.4
 
 Flask==0.9
 
-BeautifulSoup==4.5.1
+beautifulsoup4==4.5.1
 Feedparser==5.2.1
 Flask-Login==0.1.3
 
