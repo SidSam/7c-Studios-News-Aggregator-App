@@ -53,9 +53,12 @@ def listslice():
 	"""Returns the portion of the list of feeds that needs to be displayed on the current page"""
 
 	global feedlist
+	global page_no
 	return feedlist[(page_no-1)*20:page_no*20]
 
 def testforlastpage():
+	global feedlist
+	global page_no
 	length = len(feedlist)
 	last_page_no = int(ceil(float(length)/float(20)))
 	if page_no == last_page_no:
@@ -74,6 +77,7 @@ def freshfeeds(feedno):
 	   Beautiful Soup). Stores each feed as a dictionary into feedlist, and returns the JSON-ified version of feedlist"""
 
 	global feedlist
+	global page_no
 	feedlist = []
 	rssfeed = feedparser.parse(feeds[feedno])
 	for entry in rssfeed.entries:
