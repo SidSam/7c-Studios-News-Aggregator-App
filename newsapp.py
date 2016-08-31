@@ -69,6 +69,10 @@ def testforlastpage():
 
 @app.route('/')
 def mainpage():
+	global feedlist
+	global page_no
+	feedlist = []
+	page_no = 0
 	return render_template('mainpage.html')
 
 @app.route('/freshfeeds/<int:feedno>')
@@ -79,11 +83,11 @@ def freshfeeds(feedno):
 	global feedlist
 	global page_no
 	feedlist = []
+	page_no = 1
 	rssfeed = feedparser.parse(feeds[feedno])
 	for entry in rssfeed.entries:
 		new_entry = {'title': entry.title, 'url': entry.link, 'description': soupparsedesc(entry.description), 'imageurl': soupparseimage(entry.description)}
 		feedlist.append(new_entry)
-	page_no = 1
 	return json.dumps(feedlist)
 
 @app.route('/entertainment')
@@ -150,6 +154,6 @@ def display(feedtype):
 		feedno = 4
 	return render_template('/display.html', page_no=page_no, feedlist=list_to_be_displayed_here, is_this_last=is_this_last, feedno=feedno)
 	
-if __name__ == '__main__':
-	app.debug = True
-	app.run(host='0.0.0.0', port=5000)
+# if __name__ == '__main__':
+app.debug = True
+	# app.run(host='0.0.0.0', port=5000)
