@@ -11,11 +11,11 @@ app = Flask(__name__)
 
 APPLICATION_NAME = "News Aggregator"
 
-feeds = ['https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=e&ict=ln&output=rss&num=30',   # Entertainment
-		 'https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=snc&ict=ln&output=rss&num=30', # Science
-		 'https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=s&ict=ln&output=rss&num=30',   # Sports
-		 'https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=w&ict=ln&output=rss&num=30',   # World
-		 'https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=tc&ict=ln&output=rss&num=30'  # Technology
+feeds = ['https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=e&ict=ln&output=rss&num=20',   # Entertainment
+		 'https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=snc&ict=ln&output=rss&num=20', # Science
+		 'https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=s&ict=ln&output=rss&num=20',   # Sports
+		 'https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=w&ict=ln&output=rss&num=20',   # World
+		 'https://news.google.co.in/news/section?cf=all&pz=1&ned=in&topic=tc&ict=ln&output=rss&num=20'  # Technology
 		]
 
 feedtypes = ['entertainment', 'science', 'sports', 'world', 'technology']
@@ -54,13 +54,13 @@ def listslice():
 
 	global feedlist
 	global page_no
-	return feedlist[(page_no-1)*20:page_no*20]
+	return feedlist[(page_no-1)*5:page_no*5]
 
 def testforlastpage():
 	global feedlist
 	global page_no
 	length = len(feedlist)
-	last_page_no = int(ceil(float(length)/float(20)))
+	last_page_no = int(ceil(float(length)/float(5)))
 	if page_no == last_page_no:
 		return True
 	return False
@@ -150,6 +150,6 @@ def display(feedtype):
 		feedno = 4
 	return render_template('/display.html', page_no=page_no, feedlist=list_to_be_displayed_here, is_this_last=is_this_last, feedno=feedno)
 	
-# if __name__ == '__main__':
-app.debug = True
-# app.run(host='0.0.0.0', port=5000)
+if __name__ == '__main__':
+	app.debug = True
+	app.run(host='0.0.0.0', port=5000)

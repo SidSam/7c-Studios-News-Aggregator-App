@@ -86,16 +86,14 @@ $(document).ready(function() {
 		});
 	});
 
-	if (!navigator.onLine) {
-
-	}
+	console.log()
 });
 
 
-setInterval(function() {		// This AJAX call is set to run every 10 minutes, and update the feeds and take the user back to the first 
+// setInterval(function() {		// This AJAX call is set to run every 10 minutes, and update the feeds and take the user back to the first 
 								// page of the current cateogry
 
-	var $feedsElem = $('div.feedsdiv');
+	/*var $feedsElem = $('div.feedsdiv');
 	var $pagenoElem = $('p.pageno');
 	var $prevElem = $(':button.prev');
 	var $nextElem = $(':button.next');
@@ -128,4 +126,4 @@ setInterval(function() {		// This AJAX call is set to run every 10 minutes, and 
 		}
 	});
 
-}, 600000);
+}, 600000);*/
