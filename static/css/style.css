@@ -35,13 +35,31 @@
 	text-decoration: none;
 }
 
-.backtomain {
-	padding: 5px;
-	font-size: 14px;
-	margin-top: 10px;
-	margin-left: 1230px;
-	position: fixed;
-	float: right;
+@media screen and (min-width: 1200px) {
+	.backtomain {
+		padding: 5px;
+		font-size: 14px;
+		margin-top: 1%;
+		margin-left: 92%;
+		position: fixed;
+		float: right;
+		border: 1px solid gray;
+		border-radius: 5px;
+	}
+}
+
+
+@media screen and (min-width: 700px) {
+	.backtomain {
+		padding: 5px;
+		font-size: 14px;
+		margin-top: 1%;
+		margin-left: 87%;
+		position: fixed;
+		float: right;
+		border: 1px solid gray;
+		border-radius: 5px;
+	}
 }
 
 .feedsdiv .row {
@@ -53,6 +71,10 @@
 	margin-bottom: 20px;
 }
 
+.feedsdiv {
+	font-family: "Calibri";
+}
+
 .image, .description {
 	float: left;
 }
@@ -60,6 +82,7 @@
 .description {
 	width: 500px;
 	margin-left: 40px;
+	font-size: 15px;
 }
 
 .image {
@@ -70,11 +93,7 @@
 	margin-top: 50px;
 }
 
-.footer * {
-	float: left;
-}
-
-.prev, .next {
+.prev, .next, .json {
 	padding: 5px;
 	font-size: 14px;
 	margin-bottom: 20px;
@@ -83,11 +102,15 @@
 }
 
 .prev {
-	margin-left: 430px;
+	margin-left: -3%;
 	margin-right: 50px;
 }
 
-.pageno {
+#pageno {
 	margin-right: 50px;
-	margin-top: 5px;
+}
+
+.json {
+	float: right;
+	font-size: 12px
 }
