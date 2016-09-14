@@ -93,3 +93,17 @@ $(document).ready(function() {
 	});
 
 });
+
+var refresh = function() {
+	document.location.reload(true);
+}
+
+var periodicRefresh = setInterval(refresh, 600000);
+
+window.addEventListener("offline", function(e) {
+    clearInterval(periodicRefresh);
+}, false);
+
+window.addEventListener("online", function(e) {
+    setInterval(periodicRefresh, 600000);
+}, false);
