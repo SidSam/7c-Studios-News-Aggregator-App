@@ -136,8 +136,8 @@ def next():
 @app.route('/display/<string:feedtype>')
 def display(feedtype):
 	newsfeeds = session.query(News).slice(0,5).all()
-	return render_template('/display.html', feedlist=newsfeeds, t=t)
+	return render_template('/display.html', feedlist=newsfeeds)
 	
-if __name__ == '__main__':
-	app.debug = True
-	app.run(host='0.0.0.0', port=5000)
+# if __name__ == '__main__':
+app.debug = True
+	# app.run(host='0.0.0.0', port=5000)
