@@ -63,7 +63,7 @@ pyserial==2.6
 
 requests==2.2.1
 
-rsa==3.3
+rsa==4.1
 
 simplejson==3.3.1
 
